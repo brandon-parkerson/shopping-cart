@@ -12,6 +12,11 @@ function Nav() {
   )
 }
 
+function About() {
+  return (
+    <h2>Effortlessy blend comfort and style!</h2>
+  )
+}
 
 
 function App() {
@@ -19,7 +24,7 @@ function App() {
   return (
     <div className='app-container'>
       <Nav />
-     
+      <About />
     </div>
   )
 }

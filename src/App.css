@@ -12,27 +12,37 @@ nav {
     justify-content: space-around;
     align-items: center;
     padding: .5em;
+    
 }
 
 a {
     text-decoration: none;
     font-size: 1.8em;
+    color: white;
+    font-weight: 300;
 }
 
 a:visited {
-    color: black;
+    color: white;
+}
+
+h2 {
+    font-family: "Cormorant Garamond";
+    margin: auto;
+    font-size: 7em;
 }
 
 .app-container {
     height: 100vh;
     width: 100vw;
-    background-image: url(./assets/ian-dooley-TT-ROxWj9nA-unsplash.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/ian-dooley-TT-ROxWj9nA-unsplash.jpg);
     background-size: cover;
-    color: black;
+    color: white;
     font-family: "Montserrat";
     font-weight: 500;
     display: flex;
     flex-direction: column;
+    
 }
 
 .check-out-nav {
@@ -45,6 +55,13 @@ a:visited {
     border: none;
     background: transparent;
     font-size: large;
+    font-weight: 300;
+    color: white;
+    font-family: "Montserrat";
+}
+
+.cart-svg {
+    fill: white;
 }
 
 .check-out-btn:hover {
@@ -61,5 +78,9 @@ a:visited {
 @media (max-width: 580px) {
     .app-container {
         background-position: center;
+    }
+
+    h2 {
+        font-size: 5em;
     }
 }
