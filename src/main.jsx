@@ -3,18 +3,24 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Shop from './Shop.jsx'
-
+import Cart from './Cart.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
   },
   {
     path: "shop",
-    element: <Shop />
+    element: <Shop />,
+   
+  },
+  {
+    path: "shop/cart",
+    element: <Cart />,
   }
-])
+  
+    ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

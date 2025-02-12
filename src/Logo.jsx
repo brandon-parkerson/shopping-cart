@@ -1,4 +1,4 @@
-export default function Cart() {
+export default function CartLogo() {
     return (
     <svg width="44px" height="44px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="cart-svg">
         <circle cx="16.5" cy="18.5" r="1.5"/>

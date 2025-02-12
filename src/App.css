@@ -9,10 +9,10 @@
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding: .5em;
-    
+    width: 100vw;
 }
 
 a {
@@ -68,10 +68,7 @@ h2 {
     cursor: pointer;
 }
 
-.logo {
-    position: relative;
-    right: 8%;
-}
+
 
 
 
