@@ -32,13 +32,13 @@ const Shop = () => {
 
   function AddButton() {
     return (
-      <button onClick={addItem}>Add Item</button>
+      <button onClick={addItem} className="add-btn">Add Item</button>
     )
   }
 
   function DeleteButton() {
     return(
-      <button onClick={deleteItem}>Delete Item</button>
+      <button onClick={deleteItem} className="delete-btn">Delete Item</button>
     )
   }
    // Num of items added to cart
@@ -62,10 +62,12 @@ const Shop = () => {
     return (
       <div className="cards-container">
         {items.map((item) => (
-          <>
+          <div key={item.id}>
             <img src={item.image} className="item-img" />
-            <div key={item.id}>{item.title}</div>
-          </>
+            <div >{item.title}</div>
+            <AddButton />
+            <DeleteButton />
+          </div>
           
         ))}
       </div>
@@ -78,9 +80,7 @@ const Shop = () => {
     return (
         <>
             <Nav />
-            <h1>Shop</h1>
-            <AddButton />
-            <DeleteButton />
+            
             <Cards />
             
         </>

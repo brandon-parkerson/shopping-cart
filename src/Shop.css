@@ -13,5 +13,19 @@ nav {
 
 .item-img {
     height: auto;
-    width: 5%;
+    width: 25%;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.add-btn {
+    height: 2em;
+}
+
+.delete-btn {
+    height: 2em;
 }
