@@ -62,11 +62,15 @@ const Shop = () => {
     return (
       <div className="cards-container">
         {items.map((item) => (
-          <div key={item.id}>
+          <div key={item.id} className="card">
             <img src={item.image} className="item-img" />
-            <div >{item.title}</div>
-            <AddButton />
-            <DeleteButton />
+            <div>{item.title}</div>
+            <p>${item.price}</p>
+            <div>
+              <AddButton />
+              <DeleteButton />
+            </div>
+            
           </div>
           
         ))}
