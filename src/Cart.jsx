@@ -24,10 +24,12 @@ function Hello() {
 }
 
 
+
+
 export default function Cart() {
     return (
         <>
-            
+            <Nav />
             <Hello />
         </>
         
