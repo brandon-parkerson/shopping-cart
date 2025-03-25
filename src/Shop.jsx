@@ -1,8 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { data, Link, Outlet } from "react-router-dom";
 import CartLogo from "./Logo";
 import logo from './assets/stock-increase-svgrepo-com.svg';
 import './Shop.css';
 import { useState } from "react";
+import { useEffect } from "react";
+
 
 
 
@@ -18,23 +20,68 @@ const Shop = () => {
         </nav>
     )
   }
+
+  
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => setItems(data));
+      
+  }, [])
+
+  function AddButton() {
+    return (
+      <button onClick={addItem}>Add Item</button>
+    )
+  }
+
+  function DeleteButton() {
+    return(
+      <button onClick={deleteItem}>Delete Item</button>
+    )
+  }
    // Num of items added to cart
    const [numItems, setNumItems] = useState(0);
+   // shop items
+   const [items, setItems] = useState([]);
    
 
-   function addItem() {
+  function addItem() {
       setNumItems(numItems + 1)
    }
 
-   function deleteItem() {
-      setNumItems(numItems - 1)
+  function deleteItem() {
+      if (numItems === 0) {
+        setNumItems(0);
+      }
+      else setNumItems(numItems - 1);
    }
+
+  function Cards() {
+    return (
+      <div className="cards-container">
+        {items.map((item) => (
+          <>
+            <img src={item.image} className="item-img" />
+            <div key={item.id}>{item.title}</div>
+          </>
+          
+        ))}
+      </div>
+    )
+  }
+   
+
+
+
     return (
         <>
             <Nav />
             <h1>Shop</h1>
-            <button onClick={addItem}>Add Item</button>
-            <button onClick={deleteItem}>Delete Item</button>
+            <AddButton />
+            <DeleteButton />
+            <Cards />
             
         </>
         
