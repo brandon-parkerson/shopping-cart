@@ -17,20 +17,25 @@ function Nav() {
     )
   }
 
-function Hello() {
-    return (
-        <h1>hello</h1>
-    )
-}
 
 
 
 
-export default function Cart() {
+
+export default function Cart({item}) {
+    function Total() {
+        return (
+            <>
+                <div>
+                    {item}
+                </div>
+            </>
+        )
+    }
     return (
         <>
             <Nav />
-            <Hello />
+            <Total />
         </>
         
     )

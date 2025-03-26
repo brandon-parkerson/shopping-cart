@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'; 
+import './Home.css'; 
 import logo from './assets/stock-increase-svgrepo-com.svg'
 import { Link } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ function About() {
 }
 
 
-function App() {
+function Home() {
   
   return (
     <div className='app-container'>
@@ -32,4 +32,4 @@ function App() {
   )
 }
 
-export default App 
+export default Home 

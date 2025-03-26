@@ -41,6 +41,8 @@ const Shop = () => {
       <button onClick={deleteItem} className="delete-btn">Delete Item</button>
     )
   }
+
+  
    // Num of items added to cart
    const [numItems, setNumItems] = useState(0);
    // shop items
