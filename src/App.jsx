@@ -1,35 +1,16 @@
-import { useState } from 'react'
-import './App.css'; 
-import logo from './assets/stock-increase-svgrepo-com.svg'
-import { Link } from 'react-router-dom';
+import {useState} from "react";
+import Shop from "./Shop.jsx";
+import Nav from "./Shop.jsx";
 
+export default function App() {
+  const [numItems, setNumItems] = useState(0);
 
-function Nav() {
   return (
-    <div>
-      <nav>
-      <div><img src={logo} alt="logo" className='logo' /></div><div><Link to="shop">Shop</Link></div>
-      </nav>
-    </div>
+    <>
+      <Shop onItem={setNumItems} />
+      <Nav numItems={numItems} />
+    </>
+    
   )
+
 }
-
-function About() {
-  return (
-    <h2>Effortlessy blend comfort and style!</h2>
-  )
-}
-
-
-function App() {
-  
-  return (
-    <div className='app-container'>
-      <Nav />
-      <About />
-      
-    </div>
-  )
-}
-
-export default App 

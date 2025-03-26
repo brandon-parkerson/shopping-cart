@@ -4,22 +4,15 @@ import logo from './assets/stock-increase-svgrepo-com.svg';
 import './Shop.css';
 import { useState } from "react";
 import { useEffect } from "react";
-
+import Nav from "./Nav";
 
 
 
 
  
 
-const Shop = () => {
-  function Nav() {
-    return (
-      <nav className="navigation">
-        <div><Link to="/" className="home-link">Home</Link></div><div></div><img src={logo} alt="logo" className='logo' /><div className='check-out-nav'>
-          <Link to="cart" className='check-out-btn'>Check out</Link><CartLogo /><div className="number-items">{numItems}</div></div>
-        </nav>
-    )
-  }
+const Shop = ({onItem}) => {
+  
 
   
 
@@ -42,22 +35,21 @@ const Shop = () => {
     )
   }
 
-  
-   // Num of items added to cart
-   const [numItems, setNumItems] = useState(0);
+  let numItems = 0;
+   
    // shop items
    const [items, setItems] = useState([]);
    
 
   function addItem() {
-      setNumItems(numItems + 1)
+      onItem(numItems + 1);
    }
 
   function deleteItem() {
       if (numItems === 0) {
-        setNumItems(0);
+        onItem(0);
       }
-      else setNumItems(numItems - 1);
+      else onItem(numItems - 1);
    }
 
   function Cards() {
@@ -85,8 +77,8 @@ const Shop = () => {
 
     return (
         <>
-            <Nav />
             
+            <Nav />
             <Cards />
             
         </>
