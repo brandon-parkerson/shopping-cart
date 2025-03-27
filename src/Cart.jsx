@@ -3,7 +3,7 @@ import "./Cart.css";
 
 
 export default function Cart() {
-  const { cartItems } = useOutletContext();
+  const { cartItems, setCartItems, numItems, setNumItems } = useOutletContext();
     
   function Total() {
     let total = 0
@@ -11,24 +11,30 @@ export default function Cart() {
         total = total + item.price;
     })
     return (
-        <p>${total}</p>
+        <h3>${total}</h3>
     )
   }
 
+  function handleRemove(id) {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+    setNumItems(numItems - 1);
+  }
+
   return (
-    <>
+    <div className="cart-page">
       
-      <h2>Cart</h2>
+      <h2 className="cart-title">Cart</h2>
+      
       {cartItems.length === 0 ? (
-        <p>Cart is empty</p>
+        <p className="cart-empty-text">Cart is empty</p>
       ) : (
         cartItems.map((item) => (
-          <div key={item.id} className="item">
-            <img src={item.image} className="item-img" />
-            <div>{item.title}</div>
-            <p>${item.price}</p>
-            
-          </div>
+            <div key={item.id} className="item">
+                <img src={item.image} className="cart-item-img" />
+                <div>{item.title}</div>
+                <p>${item.price}</p> 
+                <button onClick={() => handleRemove(item.id)}>Remove</button>
+            </div>
 
         ))
       )}
@@ -36,7 +42,7 @@ export default function Cart() {
       <Total />
       
       
-    </>
+    </div>
     
   );
 }
