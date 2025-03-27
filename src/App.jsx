@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import Shop from "./Shop.jsx";
+
 import Nav from "./Nav.jsx";
-import Cart from "./Cart.jsx";
+
 import { Outlet, useLocation } from "react-router-dom";
 
 

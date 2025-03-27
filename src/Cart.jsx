@@ -40,7 +40,7 @@ export default function Cart() {
       )}
       <h2>Total</h2>
       <Total />
-      
+      <button>Checkout</button>
       
     </div>
     

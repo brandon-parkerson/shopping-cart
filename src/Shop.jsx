@@ -1,11 +1,9 @@
 import { data, Link, Outlet, useOutletContext } from "react-router-dom";
-import CartLogo from "./Logo";
-import logo from './assets/stock-increase-svgrepo-com.svg';
+
 import './Shop.css';
 import { useState } from "react";
 import { useEffect } from "react";
-import Nav from "./Nav";
-import Cart from "./Cart";
+
 
 
 
@@ -35,6 +33,7 @@ const Shop = () => {
 
   function addItem(item) {
       setNumItems(numItems + 1);
+      
       setCartItems([...cartItems, item])
    }
 
