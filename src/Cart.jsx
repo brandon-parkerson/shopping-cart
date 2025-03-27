@@ -1,9 +1,19 @@
 import { useOutletContext } from "react-router-dom";
 import "./Cart.css";
-import { CheckoutNav } from "./Nav";
+
 
 export default function Cart() {
   const { cartItems } = useOutletContext();
+    
+  function Total() {
+    let total = 0
+    cartItems.map((item) => {
+        total = total + item.price;
+    })
+    return (
+        <p>${total}</p>
+    )
+  }
 
   return (
     <>
@@ -17,9 +27,16 @@ export default function Cart() {
             <img src={item.image} className="item-img" />
             <div>{item.title}</div>
             <p>${item.price}</p>
+            
           </div>
+
         ))
       )}
+      <h2>Total</h2>
+      <Total />
+      
+      
     </>
+    
   );
 }
