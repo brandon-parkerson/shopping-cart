@@ -7,7 +7,7 @@ import './Shop.css';
 export default function Nav({numItems}) {
     return (
       <nav className="navigation">
-        <div><Link to="/shop" className="home-link">Shop</Link></div><div></div><img src={logo} alt="logo" className='logo' /><div className='check-out-nav'>
+        <div><Link to="/shop" className="home-link">Shop</Link></div><div></div><Link to="/home"><img src={logo} alt="logo" className='logo' /></Link><div className='check-out-nav'>
           <Link to="/cart" className='check-out-btn' >Check out</Link><CartLogo /><div className="number-items">{numItems}</div></div>
         </nav>
     )
