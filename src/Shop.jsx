@@ -1,19 +1,20 @@
-import { data, Link, Outlet } from "react-router-dom";
+import { data, Link, Outlet, useOutletContext } from "react-router-dom";
 import CartLogo from "./Logo";
 import logo from './assets/stock-increase-svgrepo-com.svg';
 import './Shop.css';
 import { useState } from "react";
 import { useEffect } from "react";
 import Nav from "./Nav";
-
+import Cart from "./Cart";
 
 
 
  
 
-const Shop = ({onItem}) => {
+const Shop = () => {
   
-
+  const {cartItems, setCartItems, numItems, setNumItems} = useOutletContext();
+  const [items, setItems] = useState([]);
   
 
   useEffect(() => {
@@ -23,33 +24,23 @@ const Shop = ({onItem}) => {
       
   }, [])
 
-  function AddButton() {
-    return (
-      <button onClick={addItem} className="add-btn">Add Item</button>
-    )
-  }
+  
 
-  function DeleteButton() {
-    return(
-      <button onClick={deleteItem} className="delete-btn">Delete Item</button>
-    )
-  }
+ 
 
-  let numItems = 0;
+  
    
-   // shop items
-   const [items, setItems] = useState([]);
+   
    
 
-  function addItem() {
-      onItem(numItems + 1);
+  function addItem(item) {
+      setNumItems(numItems + 1);
+      setCartItems([...cartItems, item])
    }
 
-  function deleteItem() {
-      if (numItems === 0) {
-        onItem(0);
-      }
-      else onItem(numItems - 1);
+  function deleteItem(itemId) {
+    setCartItems(cartItems.filter((item) => item.id !== itemId));
+    setNumItems(numItems - 1);
    }
 
   function Cards() {
@@ -61,8 +52,8 @@ const Shop = ({onItem}) => {
             <div>{item.title}</div>
             <p>${item.price}</p>
             <div>
-              <AddButton />
-              <DeleteButton />
+              <button onClick={() => addItem(item)} className="add-btn">Add Item</button> 
+              <button onClick={() => deleteItem(item.id)} className="delete-btn">Delete Item</button>
             </div>
             
           </div>
@@ -78,7 +69,7 @@ const Shop = ({onItem}) => {
     return (
         <>
             
-            <Nav />
+            
             <Cards />
             
         </>

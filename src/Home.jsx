@@ -25,7 +25,7 @@ function Home() {
   
   return (
     <div className='app-container'>
-      <Nav />
+      
       <About />
       
     </div>

@@ -1,42 +1,25 @@
-import { Link } from "react-router-dom"
-import CartLogo from "./Logo";
-import logo from './assets/stock-increase-svgrepo-com.svg';
-import './Cart.css'
+import { useOutletContext } from "react-router-dom";
+import "./Cart.css";
+import { CheckoutNav } from "./Nav";
 
-function Nav() {
-    return (
-        <>
-        <nav className="cart-page-nav">
-            <div><Link to="/shop">Shop</Link></div><div></div><img src={logo} alt="logo" className='logo' /><div className='check-out-nav'>
-            <Link to="/" className='home-link'>Home</Link></div>
-        </nav>
-        
-        </>
+export default function Cart() {
+  const { cartItems } = useOutletContext();
+
+  return (
+    <>
       
-
-    )
-  }
-
-
-
-
-
-
-export default function Cart({item}) {
-    function Total() {
-        return (
-            <>
-                <div>
-                    {item}
-                </div>
-            </>
-        )
-    }
-    return (
-        <>
-            <Nav />
-            <Total />
-        </>
-        
-    )
+      <h2>Cart</h2>
+      {cartItems.length === 0 ? (
+        <p>Cart is empty</p>
+      ) : (
+        cartItems.map((item) => (
+          <div key={item.id} className="item">
+            <img src={item.image} className="item-img" />
+            <div>{item.title}</div>
+            <p>${item.price}</p>
+          </div>
+        ))
+      )}
+    </>
+  );
 }
